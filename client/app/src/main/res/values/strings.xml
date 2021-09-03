@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">StudyWithMobile</string>
+    <string name="title_home">Home</string>
+    <string name="title_search">Teacher Search</string>
+    <string name="title_settings">Settings</string>
+
+    <string name="confirm">Confirm</string>
+
+    <string name="default_slide_title">Today\'s Pick!</string>
+    <string name="teacher_content">%1s Teacher for %2s</string>
+    <string name="loading">loading…</string>
+    <string name="end">END</string>
+    <string name="today_lectures">Lectures</string>
+
+    <string name="temp_student_login">Student Login</string>
+    <string name="temp_teacher_login">Teacher Login</string>
+
+    <string name="permission_title">App permissions</string>
+    <string name="permission_subtext">We need below permissions to use this app</string>
+
+    <string name="permission_camera">Camera</string>
+    <string name="permission_camera_sub">camera sub</string>
+    <string name="permission_picture">Picture</string>
+    <string name="permission_picture_sub">picture sub</string>
+    <string name="permission_storage">Storage</string>
+    <string name="permission_storage_sub">storage sub</string>
+    <string name="permission_mic">MIC</string>
+    <string name="permission_mic_sub">mic sub</string>
+
+    <string name="home_slide_1_title">Great teachers are here!</string>
+    <string name="home_slide_2_title">Search for teachers!</string>
+    <string name="home_slide_3_title">Play free recommended video!</string>
+    <string name="home_slide_1">slide1.jpg</string>
+    <string name="home_slide_2">slide2.jpg</string>
+    <string name="home_slide_3">slide3.jpg</string>
+</resources>
