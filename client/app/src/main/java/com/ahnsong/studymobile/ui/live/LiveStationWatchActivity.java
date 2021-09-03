@@ -2,11 +2,10 @@ package com.ahnsong.studymobile.ui.live;
 
 import android.util.Log;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.ahnsong.studymobile.R;
 import com.ahnsong.studymobile.base.BaseActivity;
-import com.ahnsong.studymobile.base.Const;
+import com.ahnsong.studymobile.base.Consts;
 import com.ahnsong.studymobile.databinding.ActivityLiveStationWatchBinding;
 import com.potyvideo.library.AndExoPlayerView;
 
@@ -49,7 +48,7 @@ public class LiveStationWatchActivity extends BaseActivity {
     }
 
     private void startStreamingIfReady() {
-        String hls = Const.LiveMedia.BASE_HLS_URL + Const.LiveMedia.BASE_CHANNEL_ID + Const.LiveMedia.HD;
+        String hls = Consts.LiveMedia.BASE_HLS_URL + Consts.LiveMedia.BASE_CHANNEL_ID + Consts.LiveMedia.HD;
         Log.d(TAG, "Play url: " + hls);
         playerView.setSource(hls);
         playerView.setExoPlayerCallBack(() -> {

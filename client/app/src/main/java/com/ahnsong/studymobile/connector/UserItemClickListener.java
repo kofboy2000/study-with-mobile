@@ -1,4 +1,4 @@
 package com.ahnsong.studymobile.connector;
 
-public interface PersonItemClickListener {
+public interface UserItemClickListener {
 }

@@ -1,4 +1,4 @@
-package com.ahnsong.studymobile.data.naver;
+package com.ahnsong.studymobile.data.livestation;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

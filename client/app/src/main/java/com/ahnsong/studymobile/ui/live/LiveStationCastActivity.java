@@ -1,9 +1,7 @@
 package com.ahnsong.studymobile.ui.live;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.SurfaceHolder;
@@ -11,7 +9,7 @@ import android.view.WindowManager;
 
 import com.ahnsong.studymobile.R;
 import com.ahnsong.studymobile.base.BaseActivity;
-import com.ahnsong.studymobile.base.Const;
+import com.ahnsong.studymobile.base.Consts;
 import com.ahnsong.studymobile.databinding.ActivityLiveStationCastBinding;
 import com.pedro.rtmp.utils.ConnectCheckerRtmp;
 import com.pedro.rtplibrary.rtmp.RtmpCamera1;
@@ -71,7 +69,7 @@ public class LiveStationCastActivity extends BaseActivity implements ConnectChec
     }
 
     private String getStreamingUrl(String streamKey) {
-        return Const.LiveMedia.BASE_RTMP_URL + streamKey;
+        return Consts.LiveMedia.BASE_RTMP_URL + streamKey;
     }
 
     @Override

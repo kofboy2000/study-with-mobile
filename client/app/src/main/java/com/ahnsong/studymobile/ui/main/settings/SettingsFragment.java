@@ -6,16 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.ahnsong.studymobile.databinding.FragmentSettingsBinding;
-import com.ahnsong.studymobile.ui.live.LiveStationCastActivity;
 import com.ahnsong.studymobile.ui.live.LiveStationWatchActivity;
 
 public class SettingsFragment extends Fragment {

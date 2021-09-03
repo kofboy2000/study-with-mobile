@@ -1,8 +1,8 @@
 package com.ahnsong.studymobile.network;
 
-import com.ahnsong.studymobile.base.Const;
-import com.ahnsong.studymobile.data.naver.Channel;
-import com.ahnsong.studymobile.data.naver.Content;
+import com.ahnsong.studymobile.base.Consts;
+import com.ahnsong.studymobile.data.livestation.Channel;
+import com.ahnsong.studymobile.data.livestation.Content;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -15,7 +15,7 @@ import retrofit2.http.Path;
 public interface MediaService {
 
     @Headers({"Content-Type: application/json"})
-    @POST(Const.LiveMedia.CREATE_CHANNEL)
+    @POST(Consts.LiveMedia.CREATE_CHANNEL)
     Call<Content> createChannel(@Header("x-ncp-apigw-timestamp") long timestamp,
                                 @Header("x-ncp-iam-access-key") String key,
                                 @Header("x-ncp-apigw-signature-v2") String signature,

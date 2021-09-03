@@ -2,7 +2,7 @@ package com.ahnsong.studymobile.base;
 
 import com.ahnsong.studymobile.BuildConfig;
 
-public final class Const {
+public final class Consts {
 
     public static final class LiveMedia {
         public static final String BASE_URL = "https://livestation.apigw.ntruss.com";

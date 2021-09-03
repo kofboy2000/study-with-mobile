@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ahnsong.studymobile.R;
 import com.ahnsong.studymobile.applications.GlideApp;
-import com.ahnsong.studymobile.base.Const;
+import com.ahnsong.studymobile.base.Consts;
 import com.ahnsong.studymobile.data.HomeSlide;
 import com.ahnsong.studymobile.ui.player.YoutubePlayerActivity;
 import com.ahnsong.studymobile.utils.Utils;
@@ -70,7 +70,7 @@ public class MainSlidePagerAdapter extends RecyclerView.Adapter<MainSlidePagerAd
         public void onBind(Context context, HomeSlide homeSlide) {
             title.setText(homeSlide.getTitle());
             StorageReference background =
-                    Utils.getImageReference(Const.Storage.SLIDE, homeSlide.getImageName());
+                    Utils.getImageReference(Consts.Storage.SLIDE, homeSlide.getImageName());
             GlideApp.with(context)
                     .load(background)
                     //.placeholder(R.color.gray)

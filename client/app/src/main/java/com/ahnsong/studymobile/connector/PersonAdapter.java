@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ahnsong.studymobile.data.user.Person;
+import com.ahnsong.studymobile.data.user.User;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -15,12 +15,12 @@ import java.util.List;
 
 public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonViewHolder> {
     private Context context;
-    private List<Person> personList;
-    private PersonItemClickListener itemClickListener;
+    private List<User> userList;
+    private UserItemClickListener itemClickListener;
 
-    public PersonAdapter(Context context, List<Person> persons, PersonItemClickListener listener) {
+    public PersonAdapter(Context context, List<User> users, UserItemClickListener listener) {
         this.context = context;
-        this.personList = persons;
+        this.userList = users;
         this.itemClickListener = listener;
     }
 
