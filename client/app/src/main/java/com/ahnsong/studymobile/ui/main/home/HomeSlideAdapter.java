@@ -25,11 +25,11 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 
-public class MainSlidePagerAdapter extends RecyclerView.Adapter<MainSlidePagerAdapter.MainSlidePageHolder> {
+public class HomeSlideAdapter extends RecyclerView.Adapter<HomeSlideAdapter.MainSlidePageHolder> {
     private Context context;
     private List<HomeSlide> homeSlideList;
 
-    public MainSlidePagerAdapter(Context context, List<HomeSlide> slides) {
+    public HomeSlideAdapter(Context context, List<HomeSlide> slides) {
         this.context = context;
         this.homeSlideList = slides;
     }

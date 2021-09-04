@@ -23,6 +23,7 @@ android {
         buildConfigField "String", "BASE_RTMP_URL", properties['base_rtmp_url']
         buildConfigField "String", "CDN_SERVICE_NAME", properties['cdn_service_name']
         buildConfigField "String", "CDN_SERVICE_DOMAIN", properties['cdn_service_domain']
+        buildConfigField "String", "FIREBASE_DB_URL", properties['firebase_database_url']
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

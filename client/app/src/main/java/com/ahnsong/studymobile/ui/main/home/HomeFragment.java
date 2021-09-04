@@ -43,7 +43,7 @@ public class HomeFragment extends Fragment {
                 LinearLayoutManager.HORIZONTAL, false);
         layoutManager.setAutoMeasureEnabled(true);
         binding.rvTop.setLayoutManager(layoutManager);
-        binding.rvTop.setAdapter(new MainSlidePagerAdapter(getContext(), pagerList));
+        binding.rvTop.setAdapter(new HomeSlideAdapter(getContext(), pagerList));
     }
 
     @Override

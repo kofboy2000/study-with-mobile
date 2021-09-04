@@ -27,7 +27,7 @@
             android:background="@drawable/logo_text_only" />
 
         <Button
-            android:id="@+id/login_button"
+            android:id="@+id/login_student_button"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_margin="@dimen/default_margin"
@@ -36,7 +36,7 @@
             android:text="@string/temp_student_login" />
 
         <Button
-            android:id="@+id/social_login_button"
+            android:id="@+id/login_teacher_button"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_margin="@dimen/default_margin"

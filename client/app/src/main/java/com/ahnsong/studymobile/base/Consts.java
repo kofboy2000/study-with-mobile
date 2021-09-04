@@ -32,7 +32,18 @@ public final class Consts {
     }
 
     public static class Storage {
-        public static final String PROFILE = "profiles/";
+        public static final String PROFILE = "profile/";
         public static final String SLIDE = "slide/";
+    }
+
+    public static class Database {
+        public static final String DB_URL = BuildConfig.FIREBASE_DB_URL;
+
+        public static final String USERS = "users";
+        public static final String CLASS = "class";
+        public static final String NOTICE = "notice";
+
+        public static final String USER_STATUS_STUDNET = "student";
+        public static final String USER_STATUS_TEACHER = "teacher";
     }
 }

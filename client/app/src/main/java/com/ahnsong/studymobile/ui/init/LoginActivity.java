@@ -26,7 +26,8 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        binding.loginButton.setOnClickListener(v->loginAsStudent());
+        binding.loginStudentButton.setOnClickListener(v->loginAsStudent());
+        binding.loginTeacherButton.setOnClickListener(v->loginAsTeacher());
     }
 
     private void loginAsStudent() {
@@ -35,6 +36,19 @@ public class LoginActivity extends BaseActivity {
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener(authResult ->
                     startAndClearAllActivity(MainActivity.class))
+                .addOnFailureListener(authResult -> {
+                    Log.e(TAG, "Login error : " + authResult.getMessage());
+                    Toast.makeText(LoginActivity.this, "로그인 오류",
+                            Toast.LENGTH_SHORT).show();
+                });
+    }
+
+    private void loginAsTeacher() {
+        String email = "teacher1@gmail.com";
+        String password = "teacher1";
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                .addOnSuccessListener(authResult ->
+                        startAndClearAllActivity(MainActivity.class))
                 .addOnFailureListener(authResult -> {
                     Log.e(TAG, "Login error : " + authResult.getMessage());
                     Toast.makeText(LoginActivity.this, "로그인 오류",

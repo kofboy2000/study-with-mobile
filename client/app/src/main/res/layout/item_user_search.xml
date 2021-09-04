@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorGrey" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/small_margin">
+
+        <ImageView
+            android:id="@+id/item_thumbnail"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:src="@color/colorGrey" />
+
+        <TextView
+            android:id="@+id/item_user_name"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_toEndOf="@id/item_thumbnail"
+            android:textSize="@dimen/text_guide"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="@string/sample"
+            android:textColor="@color/colorBlack" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginTop="@dimen/very_small_margin"
+            android:layout_below="@id/item_user_name"
+            android:layout_toEndOf="@id/item_thumbnail"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/item_subject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorViolet"
+                android:text="@string/sample"/>
+
+            <TextView
+                android:id="@+id/item_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/very_small_margin"
+                android:text="@string/sample"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/item_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/small_margin"
+        android:layout_centerVertical="true"
+        android:background="@drawable/ic_baseline_arrow_forward_ios_24"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorGrey" />
+</RelativeLayout>
