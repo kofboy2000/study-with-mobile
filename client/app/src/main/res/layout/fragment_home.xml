@@ -25,12 +25,12 @@
             android:fontFamily="@font/app_font"
             android:textColor="@color/colorPurple200"
             android:textSize="@dimen/font_subtitle"
-            android:text="@string/today_lectures" />
+            android:text="@string/today_class" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/small_margin" />
+            android:layout_margin="@dimen/very_small_margin" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

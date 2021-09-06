@@ -4,7 +4,9 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.ahnsong.studymobile.R;
+import com.ahnsong.studymobile.applications.StudyWithMeInstance;
 import com.ahnsong.studymobile.base.BaseActivity;
+import com.ahnsong.studymobile.base.Consts;
 import com.ahnsong.studymobile.databinding.ActivityLoginBinding;
 import com.ahnsong.studymobile.ui.main.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,8 +36,10 @@ public class LoginActivity extends BaseActivity {
         String email = "student1@gmail.com";
         String password = "student1";
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-                .addOnSuccessListener(authResult ->
-                    startAndClearAllActivity(MainActivity.class))
+                .addOnSuccessListener(authResult -> {
+                    StudyWithMeInstance.getInstance().setCurrentUserStatus(Consts.Database.USER_STATUS_STUDNET);
+                    startAndClearAllActivity(MainActivity.class);
+                })
                 .addOnFailureListener(authResult -> {
                     Log.e(TAG, "Login error : " + authResult.getMessage());
                     Toast.makeText(LoginActivity.this, "로그인 오류",
@@ -47,8 +51,10 @@ public class LoginActivity extends BaseActivity {
         String email = "teacher1@gmail.com";
         String password = "teacher1";
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-                .addOnSuccessListener(authResult ->
-                        startAndClearAllActivity(MainActivity.class))
+                .addOnSuccessListener(authResult -> {
+                    StudyWithMeInstance.getInstance().setCurrentUserStatus(Consts.Database.USER_STATUS_TEACHER);
+                    startAndClearAllActivity(MainActivity.class);
+                })
                 .addOnFailureListener(authResult -> {
                     Log.e(TAG, "Login error : " + authResult.getMessage());
                     Toast.makeText(LoginActivity.this, "로그인 오류",

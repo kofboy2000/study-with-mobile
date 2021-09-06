@@ -1,11 +1,11 @@
 package com.ahnsong.studymobile.streaming;
 
-import com.ahnsong.studymobile.data.Streaming;
+import com.ahnsong.studymobile.data.MyClass;
 
 public class NaverLiveMedia implements LiveStreamService {
 
     @Override
-    public void setStreamingData(Streaming streaming) {
+    public void setStreamingData(MyClass streaming) {
 
     }
 

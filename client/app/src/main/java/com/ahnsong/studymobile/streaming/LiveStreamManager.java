@@ -1,6 +1,6 @@
 package com.ahnsong.studymobile.streaming;
 
-import com.ahnsong.studymobile.data.Streaming;
+import com.ahnsong.studymobile.data.MyClass;
 
 public class LiveStreamManager {
     private static final String TAG = "LiveMedia";
@@ -14,7 +14,7 @@ public class LiveStreamManager {
         this.streamCallback = streamCallback;
     }
 
-    public void setStreamData(Streaming streamData) {
+    public void setStreamData(MyClass streamData) {
         streamService.setStreamingData(streamData);
     }
 

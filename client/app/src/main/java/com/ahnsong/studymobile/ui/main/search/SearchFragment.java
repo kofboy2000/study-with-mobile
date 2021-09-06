@@ -10,8 +10,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.ahnsong.studymobile.R;
+import com.ahnsong.studymobile.applications.StudyWithMeInstance;
 import com.ahnsong.studymobile.base.Consts;
-import com.ahnsong.studymobile.data.user.User;
+import com.ahnsong.studymobile.data.User;
 import com.ahnsong.studymobile.databinding.FragmentSearchBinding;
 
 import java.util.ArrayList;
@@ -20,7 +22,6 @@ import java.util.stream.Collectors;
 
 public class SearchFragment extends Fragment {
 
-    private SearchViewModel searchViewModel;
     private FragmentSearchBinding binding;
     private List<User> userList = new ArrayList<>();
     private SearchListAdapter adapter;
@@ -28,16 +29,29 @@ public class SearchFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        searchViewModel =
-                new ViewModelProvider(this).get(SearchViewModel.class);
+        SearchViewModel searchViewModel = new ViewModelProvider(this).get(SearchViewModel.class);
 
         binding = FragmentSearchBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        if (Consts.Database.USER_STATUS_TEACHER.equals(
+                StudyWithMeInstance.getInstance().getCurrentUserStatus())) {
+            binding.tvSearchTitle.setText(R.string.search_student);
+        } else {
+            binding.tvSearchTitle.setText(R.string.search_teacher);
+        }
+
         adapter = new SearchListAdapter(getContext());
         searchViewModel.getUserList().observe(getViewLifecycleOwner(), users -> {
             userList = users.stream()
-                .filter(user -> Consts.Database.USER_STATUS_TEACHER.equals(user.getUserStatus()))
+                .filter(user -> {
+                    if (Consts.Database.USER_STATUS_TEACHER.equals(
+                            StudyWithMeInstance.getInstance().getCurrentUserStatus())) {
+                        return Consts.Database.USER_STATUS_STUDNET.equals(user.getUserStatus());
+                    } else {
+                        return Consts.Database.USER_STATUS_TEACHER.equals(user.getUserStatus());
+                    }
+                })
                 .collect(Collectors.toList());
             adapter.setDataSet(userList);
         });

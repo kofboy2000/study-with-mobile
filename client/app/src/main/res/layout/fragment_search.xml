@@ -8,6 +8,15 @@
     android:orientation="vertical"
     tools:context=".ui.main.search.SearchFragment">
 
+    <TextView
+        android:id="@+id/tv_search_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sample"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/font_title"
+        android:layout_margin="@dimen/default_margin"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/search_recyler_view"
         android:layout_width="match_parent"

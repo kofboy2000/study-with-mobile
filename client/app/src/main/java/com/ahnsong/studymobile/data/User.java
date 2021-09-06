@@ -1,4 +1,4 @@
-package com.ahnsong.studymobile.data.user;
+package com.ahnsong.studymobile.data;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 

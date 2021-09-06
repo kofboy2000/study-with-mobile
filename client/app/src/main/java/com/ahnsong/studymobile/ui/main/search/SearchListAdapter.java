@@ -1,7 +1,6 @@
 package com.ahnsong.studymobile.ui.main.search;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -11,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ahnsong.studymobile.R;
 import com.ahnsong.studymobile.applications.GlideApp;
 import com.ahnsong.studymobile.base.Consts;
-import com.ahnsong.studymobile.data.user.User;
+import com.ahnsong.studymobile.data.User;
 import com.ahnsong.studymobile.databinding.ItemUserSearchBinding;
 import com.ahnsong.studymobile.utils.Utils;
 import com.google.firebase.storage.StorageReference;

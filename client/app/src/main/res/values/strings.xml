@@ -5,12 +5,14 @@
     <string name="title_settings">Settings</string>
 
     <string name="confirm">Confirm</string>
+    <string name="student">student</string>
+    <string name="teacher">teacher</string>
 
     <string name="default_slide_title">Today\'s Pick!</string>
     <string name="teacher_content">%1s Teacher for %2s</string>
     <string name="loading">loading…</string>
     <string name="end">END</string>
-    <string name="today_lectures">Lectures</string>
+    <string name="today_class">Class</string>
 
     <string name="temp_student_login">Student Login</string>
     <string name="temp_teacher_login">Teacher Login</string>
@@ -34,4 +36,8 @@
     <string name="home_slide_2">slide2.jpg</string>
     <string name="home_slide_3">slide3.jpg</string>
     <string name="sample">sample</string>
+
+    <string name="live_status_none">Class isn\'t on live status</string>
+    <string name="search_student">Search for your student</string>
+    <string name="search_teacher">Search for your teacher</string>
 </resources>

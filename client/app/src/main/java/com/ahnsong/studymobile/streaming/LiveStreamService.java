@@ -1,10 +1,10 @@
 package com.ahnsong.studymobile.streaming;
 
-import com.ahnsong.studymobile.data.Streaming;
+import com.ahnsong.studymobile.data.MyClass;
 
 public interface LiveStreamService {
 
-    void setStreamingData(Streaming streaming);
+    void setStreamingData(MyClass streaming);
     void setStream();
     void getStreamKey(String channelId);
 }

@@ -1,14 +1,14 @@
-package com.ahnsong.studymobile.utils;
+package com.ahnsong.studymobile.streaming;
 
 import android.os.CountDownTimer;
 import android.util.Log;
 
-public class LectureTimer extends CountDownTimer {
-    private static final String TAG = "LectureTimer";
+public class LiveStreamTimer extends CountDownTimer {
+    private static final String TAG = "LiveStreamTimer";
 
     public static final long TIME_LIMIT_SEC = 30;
 
-    private LectureTimerCallback lectureTimerCallback;
+    private LiveStreamTimerCallback streamTimerCallback;
 
     /**
      * @param millisInFuture    The number of millis in the future from the call
@@ -17,12 +17,12 @@ public class LectureTimer extends CountDownTimer {
      * @param countDownInterval The interval along the way to receive
      *                          {@link #onTick(long)} callbacks.
      */
-    public LectureTimer(long millisInFuture, long countDownInterval) {
+    public LiveStreamTimer(long millisInFuture, long countDownInterval) {
         super(millisInFuture, countDownInterval);
     }
 
-    public void setLectureTimerCallback(LectureTimerCallback callback) {
-        lectureTimerCallback = callback;
+    public void setStreamTimerCallback(LiveStreamTimerCallback callback) {
+        streamTimerCallback = callback;
     }
 
     @Override
@@ -33,6 +33,6 @@ public class LectureTimer extends CountDownTimer {
 
     @Override
     public void onFinish() {
-        lectureTimerCallback.onEventEndTick();
+        streamTimerCallback.onEventEndTick();
     }
 }

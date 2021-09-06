@@ -8,6 +8,7 @@
     <dimen name="big_margin">48dp</dimen>
     <dimen name="small_margin">16dp</dimen>
     <dimen name="very_small_margin">8dp</dimen>
+    <dimen name="tiny_margin">3dp</dimen>
 
     <dimen name="teacher_item_width">125dp</dimen>
     <dimen name="teacher_item_image_height">175dp</dimen>
@@ -16,4 +17,5 @@
     <dimen name="font_title">24sp</dimen>
     <dimen name="font_subtitle">18sp</dimen>
     <dimen name="text_guide">16dp</dimen>
+    <dimen name="main_thumbnail">180dp</dimen>
 </resources>

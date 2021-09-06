@@ -3,12 +3,11 @@ package com.ahnsong.studymobile.ui.main.search;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.ahnsong.studymobile.base.Consts;
-import com.ahnsong.studymobile.data.user.User;
+import com.ahnsong.studymobile.data.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
