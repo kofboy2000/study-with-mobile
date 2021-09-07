@@ -3,19 +3,25 @@ package com.ahnsong.studymobile.ui.live;
 import android.util.Log;
 import android.view.WindowManager;
 
+import androidx.lifecycle.ViewModelProvider;
+
 import com.ahnsong.studymobile.R;
+import com.ahnsong.studymobile.applications.GlideApp;
 import com.ahnsong.studymobile.base.BaseActivity;
 import com.ahnsong.studymobile.base.Consts;
 import com.ahnsong.studymobile.databinding.ActivityLiveStationWatchBinding;
+import com.ahnsong.studymobile.utils.Utils;
+import com.google.firebase.storage.StorageReference;
 import com.potyvideo.library.AndExoPlayerView;
 
 public class LiveStationWatchActivity extends BaseActivity {
-    private static final String TAG = "SWM-LiveStationWatchActivity";
+    private static final String TAG = "LiveStationWatchActivity";
 
     private ActivityLiveStationWatchBinding binding;
+    private LiveStationWatchViewModel watchViewModel;
 
     private AndExoPlayerView playerView;
-    private String liveCurrentStatus;
+    private String myClassKey;
 
     @Override
     protected int setLayout() {
@@ -26,13 +32,16 @@ public class LiveStationWatchActivity extends BaseActivity {
     protected void initView() {
         binding = ActivityLiveStationWatchBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        watchViewModel = new ViewModelProvider(this).get(LiveStationWatchViewModel.class);
         playerView = binding.exoPlayerView;
     }
 
     @Override
     protected void initData() {
-        startStreamingIfReady();
+        myClassKey = getIntent().getStringExtra("key");
         binding.btnExitCast.setOnClickListener(v->finish());
+        startReferenceClassData(myClassKey);
+        startStreamingIfReady();
     }
 
     @Override
@@ -45,6 +54,19 @@ public class LiveStationWatchActivity extends BaseActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                 WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    }
+
+    private void startReferenceClassData(String myClassKey) {
+        watchViewModel.getMyClassData().observe(this, myClass -> {
+            binding.tvLiveTitle.setText(myClass.getTitle());
+            binding.tvTeacherName.setText(myClass.getTeacher());
+            StorageReference ref = Utils.getImageReference(Consts.Storage.PROFILE, myClass.getProfile());
+            GlideApp.with(this)
+                    .load(ref)
+                    .placeholder(R.color.colorGrey)
+                    .into(binding.imgLiveProfile);
+        });
+        watchViewModel.startReferenceClassData(myClassKey);
     }
 
     private void startStreamingIfReady() {
