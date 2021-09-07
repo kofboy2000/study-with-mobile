@@ -1,16 +1,20 @@
 package com.ahnsong.studymobile.ui.live;
 
-import androidx.annotation.NonNull;
-
 import android.os.Handler;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.WindowManager;
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.ahnsong.studymobile.R;
+import com.ahnsong.studymobile.applications.GlideApp;
 import com.ahnsong.studymobile.base.BaseActivity;
 import com.ahnsong.studymobile.base.Consts;
 import com.ahnsong.studymobile.databinding.ActivityLiveStationCastBinding;
+import com.ahnsong.studymobile.utils.Utils;
+import com.google.firebase.storage.StorageReference;
 import com.pedro.rtmp.utils.ConnectCheckerRtmp;
 import com.pedro.rtplibrary.rtmp.RtmpCamera1;
 
@@ -22,7 +26,9 @@ public class LiveStationCastActivity extends BaseActivity implements ConnectChec
     private static final int NUM_OF_RETRIES = 10;
 
     private ActivityLiveStationCastBinding binding;
+    private LiveStationCastViewModel castViewModel;
     private RtmpCamera1 rtmpCamera;
+    private String myClassKey;
 
     @Override
     protected int setLayout() {
@@ -33,6 +39,9 @@ public class LiveStationCastActivity extends BaseActivity implements ConnectChec
     protected void initView() {
         binding = ActivityLiveStationCastBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        castViewModel = new ViewModelProvider(this).get(LiveStationCastViewModel.class);
+
         rtmpCamera = new RtmpCamera1(binding.liveCastScreen, this);
         rtmpCamera.setReTries(NUM_OF_RETRIES);
         binding.liveCastScreen.getHolder().addCallback(this);
@@ -52,11 +61,27 @@ public class LiveStationCastActivity extends BaseActivity implements ConnectChec
 
     @Override
     protected void initData() {
+        myClassKey = getIntent().getStringExtra("key");
         binding.btnEndCast.setOnClickListener(v-> {
             endStream();
             finish();
         });
+        startReferenceClassData(myClassKey);
         startStreamIfReady();
+    }
+
+    private void startReferenceClassData(String key) {
+        castViewModel.getMyClassData().observe(this, myClass -> {
+            binding.tvLiveTitle.setText(myClass.getTitle());
+            binding.tvTeacherName.setText(myClass.getTeacher());
+            StorageReference ref = Utils.getImageReference(Consts.Storage.PROFILE, myClass.getProfile());
+            GlideApp.with(this)
+                    .load(ref)
+                    .placeholder(R.color.colorGrey)
+                    .into(binding.imgLiveProfile);
+
+        });
+        castViewModel.startReferenceClassData(key);
     }
 
     private void startStreamIfReady() {
@@ -128,10 +153,15 @@ public class LiveStationCastActivity extends BaseActivity implements ConnectChec
         super.onDestroy();
     }
 
+    private void endClassData() {
+        castViewModel.endClassData(myClassKey);
+    }
+
     private void endStream() {
         if (rtmpCamera.isStreaming()) {
             rtmpCamera.stopStream();
             rtmpCamera.stopPreview();
         }
+        endClassData();
     }
 }

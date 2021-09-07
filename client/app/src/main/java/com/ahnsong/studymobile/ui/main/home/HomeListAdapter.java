@@ -83,6 +83,8 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.HomeLi
                     .into(itemHomeLectureBinding.imgUserProfile);
             if (liveStatus.equals(myClass.getStatus())) {
                 itemHomeLectureBinding.imgLiveLabel.setVisibility(View.VISIBLE);
+            } else {
+                itemHomeLectureBinding.imgLiveLabel.setVisibility(View.INVISIBLE);
             }
             itemHomeLectureBinding.thumbItemContainer.setOnClickListener(v -> {
                 if (liveStatus.equals(myClass.getStatus())) {

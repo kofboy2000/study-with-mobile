@@ -1,5 +1,7 @@
 package com.ahnsong.studymobile.ui.main;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,18 +16,24 @@ import com.ahnsong.studymobile.R;
 import com.ahnsong.studymobile.applications.StudyWithMeInstance;
 import com.ahnsong.studymobile.base.Consts;
 import com.ahnsong.studymobile.databinding.ActivityMainBinding;
+import com.ahnsong.studymobile.firebase.FirebaseCallback;
+import com.ahnsong.studymobile.firebase.FirebaseManager;
+import com.ahnsong.studymobile.ui.live.LiveStationCastActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        com.ahnsong.studymobile.databinding.ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        context = this;
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -50,6 +58,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startNewLecture() {
-        Log.d(TAG, "startNewLecture");
+        FirebaseManager manger = new FirebaseManager(this);
+        manger.createLectureReference(key -> {
+            Intent intent = new Intent(context,
+                    LiveStationCastActivity.class);
+            intent.putExtra("key", key);
+            startActivity(intent);
+        });
     }
 }
