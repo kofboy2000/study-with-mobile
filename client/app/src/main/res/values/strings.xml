@@ -31,10 +31,17 @@
 
     <string name="home_slide_1_title">Great teachers are here!</string>
     <string name="home_slide_2_title">Search for teachers!</string>
-    <string name="home_slide_3_title">Play free recommended video!</string>
     <string name="home_slide_1">slide1.jpg</string>
     <string name="home_slide_2">slide2.jpg</string>
+
+    <string name="home_slide_1_student_title">Great students are here!</string>
+    <string name="home_slide_2_student_title">Search for students!</string>
+    <string name="home_slide_1_student">slide_student_1.jpg</string>
+    <string name="home_slide_2_student">slide_student_2.jpg</string>
+
+    <string name="home_slide_3_title">Play free recommended video!</string>
     <string name="home_slide_3">slide3.jpg</string>
+
     <string name="sample">sample</string>
 
     <string name="live_status_none">Class isn\'t on live status</string>

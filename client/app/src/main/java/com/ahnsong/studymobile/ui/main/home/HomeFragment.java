@@ -14,8 +14,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ahnsong.studymobile.R;
+import com.ahnsong.studymobile.applications.StudyWithMeInstance;
+import com.ahnsong.studymobile.base.Consts;
 import com.ahnsong.studymobile.data.HomeSlide;
 import com.ahnsong.studymobile.databinding.FragmentHomeBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,10 +53,18 @@ public class HomeFragment extends Fragment {
 
     private void setupTopView() {
         List<HomeSlide> pagerList = new ArrayList<>();
-        pagerList.add(new HomeSlide(getString(R.string.home_slide_1_title),
-                                    getString(R.string.home_slide_1), false));
-        pagerList.add(new HomeSlide(getString(R.string.home_slide_2_title),
-                getString(R.string.home_slide_2), false));
+        if (Consts.Database.USER_STATUS_TEACHER.equals(
+                StudyWithMeInstance.getInstance().getCurrentUserStatus())) {
+            pagerList.add(new HomeSlide(getString(R.string.home_slide_1_student_title),
+                    getString(R.string.home_slide_1_student), false));
+            pagerList.add(new HomeSlide(getString(R.string.home_slide_2_student_title),
+                    getString(R.string.home_slide_2_student), false));
+        } else {
+            pagerList.add(new HomeSlide(getString(R.string.home_slide_1_title),
+                    getString(R.string.home_slide_1), false));
+            pagerList.add(new HomeSlide(getString(R.string.home_slide_2_title),
+                    getString(R.string.home_slide_2), false));
+        }
         pagerList.add(new HomeSlide(getString(R.string.home_slide_3_title),
                 getString(R.string.home_slide_3), true));
 
