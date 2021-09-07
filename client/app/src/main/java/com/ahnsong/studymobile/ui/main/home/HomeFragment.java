@@ -14,16 +14,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ahnsong.studymobile.R;
-import com.ahnsong.studymobile.base.Consts;
 import com.ahnsong.studymobile.data.HomeSlide;
-import com.ahnsong.studymobile.data.MyClass;
-import com.ahnsong.studymobile.data.User;
 import com.ahnsong.studymobile.databinding.FragmentHomeBinding;
-import com.ahnsong.studymobile.ui.main.search.SearchListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class HomeFragment extends Fragment {
     private static final String TAG = "HomeFragment";

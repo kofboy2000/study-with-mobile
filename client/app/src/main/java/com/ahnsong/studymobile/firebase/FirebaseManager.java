@@ -11,8 +11,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class FirebaseManager {
-    private static final String TAG = "FirebaseManager";
-
     private Context context;
 
     public FirebaseManager(Context context) {

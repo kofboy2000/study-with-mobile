@@ -3,7 +3,6 @@ package com.ahnsong.studymobile.ui.main;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,14 +15,11 @@ import com.ahnsong.studymobile.R;
 import com.ahnsong.studymobile.applications.StudyWithMeInstance;
 import com.ahnsong.studymobile.base.Consts;
 import com.ahnsong.studymobile.databinding.ActivityMainBinding;
-import com.ahnsong.studymobile.firebase.FirebaseCallback;
 import com.ahnsong.studymobile.firebase.FirebaseManager;
 import com.ahnsong.studymobile.ui.live.LiveStationCastActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
-
     private Context context;
 
     @Override
