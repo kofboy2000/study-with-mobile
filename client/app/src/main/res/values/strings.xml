@@ -40,4 +40,5 @@
     <string name="live_status_none">Class isn\'t on live status</string>
     <string name="search_student">Search for your student</string>
     <string name="search_teacher">Search for your teacher</string>
+    <string name="notice">Notice</string>
 </resources>

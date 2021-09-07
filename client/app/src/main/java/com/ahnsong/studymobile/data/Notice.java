@@ -15,6 +15,6 @@ import lombok.Setter;
 public class Notice {
 
     private String contents;
-    private String data;
+    private String date;
     private String title;
 }
