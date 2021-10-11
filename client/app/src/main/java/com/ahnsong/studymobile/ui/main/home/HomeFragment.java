@@ -11,14 +11,15 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SnapHelper;
 
 import com.ahnsong.studymobile.R;
 import com.ahnsong.studymobile.applications.StudyWithMeInstance;
 import com.ahnsong.studymobile.base.Consts;
 import com.ahnsong.studymobile.data.HomeSlide;
 import com.ahnsong.studymobile.databinding.FragmentHomeBinding;
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,9 +71,11 @@ public class HomeFragment extends Fragment {
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL, false);
+        SnapHelper snapHelper = new PagerSnapHelper();
         layoutManager.setAutoMeasureEnabled(true);
         binding.rvTop.setLayoutManager(layoutManager);
         binding.rvTop.setAdapter(new HomeSlideAdapter(getContext(), pagerList));
+        snapHelper.attachToRecyclerView(binding.rvTop);
     }
 
     private void setupBottomView() {
