@@ -1,5 +1,6 @@
 package com.ahnsong.studymobile.ui.main.settings;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.ahnsong.studymobile.base.Consts;
 import com.ahnsong.studymobile.data.Notice;
 import com.ahnsong.studymobile.databinding.FragmentSettingsBinding;
 import com.ahnsong.studymobile.utils.Utils;
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
 import com.google.firebase.storage.StorageReference;
 
 public class SettingsFragment extends Fragment {
@@ -38,6 +40,7 @@ public class SettingsFragment extends Fragment {
 
         referenceUserData();
         referenceNoticeData();
+        addListener();
         return root;
     }
 
@@ -62,6 +65,13 @@ public class SettingsFragment extends Fragment {
             adapter.notifyDataSetChanged();
         });
         settingsViewModel.startReferenceNoticeData();
+    }
+
+    private void addListener() {
+        binding.ossLicense.setOnClickListener(v -> {
+            startActivity(new Intent(this.getActivity(), OssLicensesMenuActivity.class));
+            OssLicensesMenuActivity.setActivityTitle("Study With Mobile OSS License");
+        });
     }
 
     @Override

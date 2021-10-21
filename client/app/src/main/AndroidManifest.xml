@@ -29,7 +29,6 @@
         android:theme="@style/Theme.StudyWithMobile"
         android:usesCleartextTraffic="true"
         tools:ignore="LockedOrientationActivity">
-
         <activity
             android:name=".ui.init.SplashActivity"
             android:label="@string/app_name"
@@ -39,6 +38,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.register.RegisterSubjectActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.register.RegisterUserTypeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.register.RegisterActivity"
+            android:exported="true" />
         <activity
             android:name=".ui.init.PermissionActivity"
             android:launchMode="singleTop"
@@ -52,6 +60,11 @@
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.corona.CoronaActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.StudyWithMobile.NoActionBar" />
         <activity
             android:name=".ui.live.LiveStationCastActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
@@ -70,5 +83,4 @@
             android:launchMode="singleTop"
             android:theme="@style/Theme.StudyWithMobile.NoActionBar"/>
     </application>
-
 </manifest>

@@ -51,4 +51,13 @@
 
     <string name="seoul">서울</string>
     <string name="today_class_title">오늘의 학습</string>
+    <string name="covid_title">Covid-19</string>
+    <string name="are_you_feeling_sick">Are you feeling sick?</string>
+    <string name="affected">Affected</string>
+    <string name="call_for_help">If you feel sick with any of covid-19 symptoms please call or SMS us immediately for help.</string>
+    <string name="call_now">Call Now</string>
+    <string name="today">Today</string>
+    <string name="prevention">Prevention</string>
+    <string name="avoid_close_n_contact">Avoid close\n contact</string>
+    <string name="open_source_license">Open Source License</string>
 </resources>
