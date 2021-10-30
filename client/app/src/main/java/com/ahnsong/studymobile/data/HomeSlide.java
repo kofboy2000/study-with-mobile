@@ -13,4 +13,5 @@ public class HomeSlide {
     private String title;
     private String imageName;
     private boolean playable;
+    private boolean clickable;
 }

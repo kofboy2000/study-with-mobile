@@ -81,6 +81,6 @@
             android:name=".ui.player.YoutubePlayerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:launchMode="singleTop"
-            android:theme="@style/Theme.StudyWithMobile.NoActionBar"/>
+            android:theme="@style/Theme.StudyWithMobile.NoActionBar" />
     </application>
 </manifest>

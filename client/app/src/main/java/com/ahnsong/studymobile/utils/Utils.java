@@ -5,6 +5,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -24,5 +25,13 @@ public class Utils {
         SimpleDateFormat format1 = new SimpleDateFormat ("yyyy.MM.dd", Locale.KOREA);
         String today = format1.format(new Date());
         return today.split("\\.")[2];
+    }
+
+    public static int getToday(int day) {
+        SimpleDateFormat format1 = new SimpleDateFormat ("yyyyMMdd", Locale.KOREA);
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, day);
+        String queryDay = format1.format(cal.getTime());
+        return Integer.parseInt(queryDay);
     }
 }

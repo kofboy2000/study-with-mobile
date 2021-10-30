@@ -23,7 +23,7 @@
             android:layout_margin="@dimen/small_margin"
             android:textAllCaps="true"
             android:fontFamily="@font/app_font"
-            android:textColor="@color/colorPurple200"
+            android:textColor="@color/colorPrimary"
             android:textSize="@dimen/font_subtitle"
             android:text="@string/today_class" />
 

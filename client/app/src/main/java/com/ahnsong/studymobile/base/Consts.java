@@ -31,6 +31,11 @@ public final class Consts {
         public static final String CDN_SERVICE_DOMAIN = BuildConfig.CDN_SERVICE_DOMAIN;
     }
 
+    public static final class Moyak {
+        public static final String BASE_RTMP_URL = BuildConfig.BASE_RTMP_URL;
+        public static final String API_KEY = BuildConfig.MOYAK_API_KEY;
+    }
+
     public static class Storage {
         public static final String PROFILE = "profile/";
         public static final String SLIDE = "slide/";

@@ -54,10 +54,17 @@
     <string name="covid_title">Covid-19</string>
     <string name="are_you_feeling_sick">Are you feeling sick?</string>
     <string name="affected">Affected</string>
+    <string name="death">Death</string>
+    <string name="exam">Test</string>
+    <string name="care">Care</string>
+    <string name="definite">Definite</string>
     <string name="call_for_help">If you feel sick with any of covid-19 symptoms please call or SMS us immediately for help.</string>
     <string name="call_now">Call Now</string>
+    <string name="message_now">Send Message</string>
     <string name="today">Today</string>
     <string name="prevention">Prevention</string>
     <string name="avoid_close_n_contact">Avoid close\n contact</string>
     <string name="open_source_license">Open Source License</string>
+    <string name="wash_your_hand">Wash your\n hand</string>
+    <string name="keep_your_mask_on">Keep your\n mask on</string>
 </resources>

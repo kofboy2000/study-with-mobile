@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         manger.createLectureReference(key -> {
             Intent intent = new Intent(context,
                     LiveStationCastActivity.class);
-            intent.putExtra("key", key);
+            intent.putExtra(Consts.Key.LIVE_CHANNEL_KEY, key);
             startActivity(intent);
         });
     }

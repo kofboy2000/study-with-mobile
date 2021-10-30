@@ -57,17 +57,17 @@ public class HomeFragment extends Fragment {
         if (Consts.Database.USER_STATUS_TEACHER.equals(
                 StudyWithMeInstance.getInstance().getCurrentUserStatus())) {
             pagerList.add(new HomeSlide(getString(R.string.home_slide_1_student_title),
-                    getString(R.string.home_slide_1_student), false));
+                    getString(R.string.home_slide_1_student), false, true));
             pagerList.add(new HomeSlide(getString(R.string.home_slide_2_student_title),
-                    getString(R.string.home_slide_2_student), false));
+                    getString(R.string.home_slide_2_student), false, false));
         } else {
             pagerList.add(new HomeSlide(getString(R.string.home_slide_1_title),
-                    getString(R.string.home_slide_1), false));
+                    getString(R.string.home_slide_1), false, true));
             pagerList.add(new HomeSlide(getString(R.string.home_slide_2_title),
-                    getString(R.string.home_slide_2), false));
+                    getString(R.string.home_slide_2), false, false));
         }
         pagerList.add(new HomeSlide(getString(R.string.home_slide_3_title),
-                getString(R.string.home_slide_3), true));
+                getString(R.string.home_slide_3), true, false));
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL, false);

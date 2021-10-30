@@ -15,6 +15,7 @@ import com.ahnsong.studymobile.R;
 import com.ahnsong.studymobile.applications.GlideApp;
 import com.ahnsong.studymobile.base.Consts;
 import com.ahnsong.studymobile.data.HomeSlide;
+import com.ahnsong.studymobile.ui.corona.CoronaActivity;
 import com.ahnsong.studymobile.ui.player.YoutubePlayerActivity;
 import com.ahnsong.studymobile.utils.Utils;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -27,7 +28,7 @@ import java.util.List;
 
 public class HomeSlideAdapter extends RecyclerView.Adapter<HomeSlideAdapter.MainSlidePageHolder> {
     private Context context;
-    private List<HomeSlide> homeSlideList;
+    private final List<HomeSlide> homeSlideList;
 
     public HomeSlideAdapter(Context context, List<HomeSlide> slides) {
         this.context = context;
@@ -45,8 +46,7 @@ public class HomeSlideAdapter extends RecyclerView.Adapter<HomeSlideAdapter.Main
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull MainSlidePageHolder holder, int position) {
-        MainSlidePageHolder mainSlidePageHolder = holder;
-        mainSlidePageHolder.onBind(context, homeSlideList.get(position));
+        holder.onBind(context, homeSlideList.get(position));
     }
 
     @Override
@@ -56,9 +56,9 @@ public class HomeSlideAdapter extends RecyclerView.Adapter<HomeSlideAdapter.Main
 
     static class MainSlidePageHolder extends RecyclerView.ViewHolder {
 
-        private TextView title;
-        private ImageView image;
-        private FloatingActionButton actionButton;
+        private final TextView title;
+        private final ImageView image;
+        private final FloatingActionButton actionButton;
 
         public MainSlidePageHolder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -80,6 +80,10 @@ public class HomeSlideAdapter extends RecyclerView.Adapter<HomeSlideAdapter.Main
                 actionButton.setOnClickListener(v -> {
                     playYoutubeLink(context);
                 });
+            } else if (homeSlide.isClickable()) {
+                image.setOnClickListener(v -> {
+                    context.startActivity(new Intent(context, CoronaActivity.class));
+                });
             } else {
                 actionButton.setVisibility(View.GONE);
             }
@@ -90,4 +94,10 @@ public class HomeSlideAdapter extends RecyclerView.Adapter<HomeSlideAdapter.Main
         }
     }
 
+    static class MainSlideCoronaHolder extends RecyclerView.ViewHolder {
+
+        public MainSlideCoronaHolder(@NonNull View itemView) {
+            super(itemView);
+        }
+    }
 }

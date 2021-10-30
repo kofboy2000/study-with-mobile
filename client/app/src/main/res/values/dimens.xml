@@ -16,6 +16,8 @@
 
     <dimen name="font_title">24sp</dimen>
     <dimen name="font_subtitle">18sp</dimen>
+    <dimen name="font_small">12sp</dimen>
     <dimen name="text_guide">16dp</dimen>
     <dimen name="main_thumbnail">180dp</dimen>
+    <dimen name="item_height">120dp</dimen>
 </resources>

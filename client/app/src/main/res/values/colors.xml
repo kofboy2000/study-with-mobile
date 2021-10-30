@@ -11,6 +11,8 @@
     <color name="colorTeal700">#FF018786</color>
     <color name="colorPink">#FD7394</color>
     <color name="colorGrey">#DDDDDD</color>
+    <color name="colorRed">#FF3B28</color>
+    <color name="colorYellow">#F7BD03</color>
     <color name="colorWhiteGrey">#EEEEEE</color>
     <color name="colorSubGrey">#CCCCCC</color>
     <color name="colorTextGrey">#9597A1</color>
@@ -20,7 +22,7 @@
     <color name="colorViolet">#787AE2</color>
     <color name="colorSoftSky">#F3F6FF</color>
     <color name="colorBlack">#303030</color>
-    <color name="colorBlue">#0085FF</color>
+    <color name="colorBlue">#006FEF</color>
 
     <color name="colorTransparent">#88FFFFFF</color>
 </resources>

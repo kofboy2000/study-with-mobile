@@ -89,7 +89,7 @@ public class HomeListAdapter extends RecyclerView.Adapter<HomeListAdapter.HomeLi
             itemHomeLectureBinding.thumbItemContainer.setOnClickListener(v -> {
                 if (liveStatus.equals(myClass.getStatus())) {
                     Intent intent = new Intent(context, LiveStationWatchActivity.class);
-                    intent.putExtra("key", myClass.getClassid());
+                    intent.putExtra(Consts.Key.LIVE_CHANNEL_KEY, myClass.getClassid());
                     context.startActivity(intent);
                 } else {
                     Toast.makeText(context, context.getString(R.string.live_status_none), Toast.LENGTH_SHORT).show();
