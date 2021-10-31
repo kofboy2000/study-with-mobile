@@ -54,20 +54,15 @@ public class HomeFragment extends Fragment {
 
     private void setupTopView() {
         List<HomeSlide> pagerList = new ArrayList<>();
-        if (Consts.Database.USER_STATUS_TEACHER.equals(
-                StudyWithMeInstance.getInstance().getCurrentUserStatus())) {
-            pagerList.add(new HomeSlide(getString(R.string.home_slide_1_student_title),
-                    getString(R.string.home_slide_1_student), false, true));
-            pagerList.add(new HomeSlide(getString(R.string.home_slide_2_student_title),
-                    getString(R.string.home_slide_2_student), false, false));
-        } else {
-            pagerList.add(new HomeSlide(getString(R.string.home_slide_1_title),
-                    getString(R.string.home_slide_1), false, true));
-            pagerList.add(new HomeSlide(getString(R.string.home_slide_2_title),
-                    getString(R.string.home_slide_2), false, false));
-        }
+
+        pagerList.add(new HomeSlide(getString(R.string.home_slide_1_title),
+                getString(R.string.home_slide_1), true, false, false));
+        pagerList.add(new HomeSlide(getString(R.string.home_slide_2_title),
+                getString(R.string.home_slide_2), false, true, false));
         pagerList.add(new HomeSlide(getString(R.string.home_slide_3_title),
-                getString(R.string.home_slide_3), true, false));
+                getString(R.string.home_slide_3), false, false, true));
+        pagerList.add(new HomeSlide(getString(R.string.home_slide_4_title),
+                getString(R.string.home_slide_4), false, false, false));
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL, false);

@@ -12,6 +12,7 @@ import lombok.ToString;
 public class HomeSlide {
     private String title;
     private String imageName;
+    private boolean coronaStat;
+    private boolean coronaInfo;
     private boolean playable;
-    private boolean clickable;
 }

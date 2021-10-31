@@ -29,18 +29,20 @@
     <string name="permission_mic">MIC</string>
     <string name="permission_mic_sub">mic sub</string>
 
-    <string name="home_slide_1_title">Great teachers are here!</string>
-    <string name="home_slide_2_title">Search for teachers!</string>
-    <string name="home_slide_1">slide1.jpg</string>
-    <string name="home_slide_2">slide2.jpg</string>
-
-    <string name="home_slide_1_student_title">Great students are here!</string>
-    <string name="home_slide_2_student_title">Search for students!</string>
     <string name="home_slide_1_student">slide_student_1.jpg</string>
     <string name="home_slide_2_student">slide_student_2.jpg</string>
 
+    <string name="home_slide_1_title">.</string>
+    <string name="home_slide_1">slide1.jpg</string>
+
+    <string name="home_slide_2_title">.</string>
+    <string name="home_slide_2">slide2.jpg</string>
+
     <string name="home_slide_3_title">Play free recommended video!</string>
     <string name="home_slide_3">slide3.jpg</string>
+
+    <string name="home_slide_4_title">Study with Me for students and teachers!</string>
+    <string name="home_slide_4">slide4.jpg</string>
 
     <string name="sample">sample</string>
 
@@ -67,4 +69,5 @@
     <string name="open_source_license">Open Source License</string>
     <string name="wash_your_hand">Wash your\n hand</string>
     <string name="keep_your_mask_on">Keep your\n mask on</string>
+    <string name="notion_corona_info">https://fossil-feeling-b2c.notion.site/StudyWithMobile-d6b9f052e49748198053db62cb0f4fc5</string>
 </resources>

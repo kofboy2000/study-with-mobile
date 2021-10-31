@@ -16,6 +16,7 @@ import com.ahnsong.studymobile.applications.GlideApp;
 import com.ahnsong.studymobile.base.Consts;
 import com.ahnsong.studymobile.data.HomeSlide;
 import com.ahnsong.studymobile.ui.corona.CoronaActivity;
+import com.ahnsong.studymobile.ui.corona.CoronaInfoActivity;
 import com.ahnsong.studymobile.ui.player.YoutubePlayerActivity;
 import com.ahnsong.studymobile.utils.Utils;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -73,31 +74,28 @@ public class HomeSlideAdapter extends RecyclerView.Adapter<HomeSlideAdapter.Main
                     Utils.getImageReference(Consts.Storage.SLIDE, homeSlide.getImageName());
             GlideApp.with(context)
                     .load(background)
-                    //.placeholder(R.color.gray)
+                    .placeholder(R.color.gray)
                     .fitCenter()
+                    .centerCrop()
                     .into(image);
-            if (homeSlide.isPlayable()) {
-                actionButton.setOnClickListener(v -> {
-                    playYoutubeLink(context);
-                });
-            } else if (homeSlide.isClickable()) {
+            if (homeSlide.isCoronaStat()) {
                 image.setOnClickListener(v -> {
                     context.startActivity(new Intent(context, CoronaActivity.class));
                 });
-            } else {
-                actionButton.setVisibility(View.GONE);
+            } else if (homeSlide.isCoronaInfo()) {
+                image.setOnClickListener(v -> {
+                    context.startActivity(new Intent(context, CoronaInfoActivity.class));
+                });
+            } else if (homeSlide.isPlayable()) {
+                actionButton.setVisibility(View.VISIBLE);
+                actionButton.setOnClickListener(v -> {
+                    playYoutubeLink(context);
+                });
             }
         }
 
         private void playYoutubeLink(Context context) {
             context.startActivity(new Intent(context, YoutubePlayerActivity.class));
-        }
-    }
-
-    static class MainSlideCoronaHolder extends RecyclerView.ViewHolder {
-
-        public MainSlideCoronaHolder(@NonNull View itemView) {
-            super(itemView);
         }
     }
 }
