@@ -4,6 +4,10 @@ import com.ahnsong.studymobile.BuildConfig;
 
 public final class Consts {
 
+    public static final class Key {
+        public static final String LIVE_CHANNEL_KEY = "liveChannel";
+    }
+
     public static final class LiveMedia {
         public static final String BASE_URL = "https://livestation.apigw.ntruss.com";
         public static final String API_ACCESS_KEY = BuildConfig.NAVER_API_KEY;
