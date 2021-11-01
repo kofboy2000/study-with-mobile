@@ -39,15 +39,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.register.RegisterSubjectActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.register.RegisterUserTypeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.register.RegisterActivity"
-            android:exported="true" />
-        <activity
             android:name=".ui.init.PermissionActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />

@@ -61,7 +61,7 @@ public class LiveStationCastActivity extends BaseActivity implements ConnectChec
 
     @Override
     protected void initData() {
-        myClassKey = getIntent().getStringExtra("key");
+        myClassKey = getIntent().getStringExtra(Consts.Key.LIVE_CHANNEL_KEY);
         binding.btnEndCast.setOnClickListener(v-> {
             endStream();
             finish();

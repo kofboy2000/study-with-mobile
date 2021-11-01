@@ -38,7 +38,7 @@ public class LiveStationWatchActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        myClassKey = getIntent().getStringExtra("key");
+        myClassKey = getIntent().getStringExtra(Consts.Key.LIVE_CHANNEL_KEY);
         binding.btnExitCast.setOnClickListener(v->finish());
         startReferenceClassData(myClassKey);
         startStreamingIfReady();
