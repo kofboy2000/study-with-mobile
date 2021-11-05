@@ -1,7 +1,10 @@
 package com.ahnsong.studymobile.ui.main.search;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -9,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ahnsong.studymobile.R;
 import com.ahnsong.studymobile.applications.GlideApp;
+import com.ahnsong.studymobile.applications.StudyWithMeInstance;
 import com.ahnsong.studymobile.base.Consts;
 import com.ahnsong.studymobile.data.User;
 import com.ahnsong.studymobile.databinding.ItemUserSearchBinding;
@@ -70,13 +74,23 @@ public class SearchListAdapter extends RecyclerView.Adapter<SearchListAdapter.Se
 
         public void setItem(User user) {
             itemUserSearchBinding.itemUserName.setText(user.getName());
-            itemUserSearchBinding.itemSubject.setText(user.getSubject());
+            if (Consts.Database.USER_STATUS_TEACHER.equals(StudyWithMeInstance.getInstance().getCurrentUserStatus())) {
+                itemUserSearchBinding.itemSubject.setVisibility(View.GONE);
+            } else {
+                itemUserSearchBinding.itemSubject.setText(user.getSubject());
+            }
             itemUserSearchBinding.itemPhone.setText(user.getPhone());
             StorageReference ref = Utils.getImageReference(Consts.Storage.PROFILE, user.getProfile());
             GlideApp.with(context)
                     .load(ref)
                     .placeholder(R.color.colorGrey)
                     .into(itemUserSearchBinding.itemThumbnail);
+            itemUserSearchBinding.itemLabel.setOnClickListener(v -> {
+                Intent intent = new Intent( Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("smsto:" + Uri.encode(user.getPhone())));
+                intent.putExtra( "sms_body", "Hello, I'm contacting you via StudyWithMobile." );
+                context.startActivity(intent);
+            });
         }
     }
 }

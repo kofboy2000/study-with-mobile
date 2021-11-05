@@ -58,10 +58,13 @@ public class RegisterActivity extends BaseActivity {
     private void createUser() {
         String name = binding.nameTextInput.getText().toString().trim();
         String email = binding.emailInput.getText().toString().trim();
+        String phoneNumber = binding.phoneTextInput.getText().toString().trim();
 
         userData = new User();
         userData.setEmail(email);
         userData.setName(name);
+        userData.setPhone(phoneNumber);
+
         boolean isTeacher = binding.radioButtonTeacher.isChecked();
         if (isTeacher) {
             userData.setProfile("teacher_07.png");

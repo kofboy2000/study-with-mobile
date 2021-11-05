@@ -68,9 +68,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/small_margin"
         android:layout_centerVertical="true"
-        android:background="@drawable/ic_baseline_arrow_forward_ios_24"/>
+        android:layout_marginEnd="@dimen/small_margin"
+        android:background="@drawable/ic_baseline_arrow_forward_ios_24" />
 
     <View
         android:layout_width="match_parent"
