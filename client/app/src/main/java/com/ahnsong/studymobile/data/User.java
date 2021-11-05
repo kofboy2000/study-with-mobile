@@ -14,13 +14,13 @@ import lombok.Setter;
 @IgnoreExtraProperties
 public class User {
     private String name;
-    private String address;
     private String email;
     private String profile;
-
-    private String userStatus;
-    private String provider;
     private String phone;
-    private String subject;
-    private long fee;
+    private String userStatus;
+
+    private String address = "Seoul";
+    private String provider = "email";
+    private String subject = "Coding";
+    private long fee = 30;
 }

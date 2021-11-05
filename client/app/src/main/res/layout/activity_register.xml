@@ -140,7 +140,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginStart="@dimen/small_margin"
-                        android:checked="false"
+                        android:checked="true"
                         android:text="@string/student"
                         android:textAppearance="@style/TextAppearance.AppCompat.Button" />
                 </RadioGroup>
@@ -148,7 +148,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/next_button"
+            android:id="@+id/done_button"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/bg_btn_basic"
