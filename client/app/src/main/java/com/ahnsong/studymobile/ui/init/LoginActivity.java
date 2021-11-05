@@ -9,11 +9,15 @@ import com.ahnsong.studymobile.base.BaseActivity;
 import com.ahnsong.studymobile.base.Consts;
 import com.ahnsong.studymobile.databinding.ActivityLoginBinding;
 import com.ahnsong.studymobile.ui.main.MainActivity;
+import com.ahnsong.studymobile.ui.register.RegisterActivity;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Objects;
 
 public class LoginActivity extends BaseActivity {
     private static final String TAG = "LoginActivity";
     private ActivityLoginBinding binding;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected int setLayout() {
@@ -28,37 +32,40 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        binding.loginStudentButton.setOnClickListener(v->loginAsStudent());
-        binding.loginTeacherButton.setOnClickListener(v->loginAsTeacher());
+        firebaseAuth = FirebaseAuth.getInstance();
+        binding.loginButton.setOnClickListener(view -> {
+            String email = binding.emailInput.getText().toString().trim();
+            String password = binding.passwordInput.getText().toString().trim();
+            if (!email.isEmpty() && !password.isEmpty())
+                signIn(email, password);
+        });
+        binding.registerButton.setOnClickListener(view -> startActivity(RegisterActivity.class));
     }
 
-    private void loginAsStudent() {
-        String email = "student1@gmail.com";
-        String password = "student1";
-        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-                .addOnSuccessListener(authResult -> {
-                    StudyWithMeInstance.getInstance().setCurrentUserStatus(Consts.Database.USER_STATUS_STUDNET);
-                    startAndClearAllActivity(MainActivity.class);
-                })
-                .addOnFailureListener(authResult -> {
-                    Log.e(TAG, "Login error : " + authResult.getMessage());
-                    Toast.makeText(LoginActivity.this, "로그인 오류",
-                            Toast.LENGTH_SHORT).show();
+    private void signIn(String email, String password) {
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        Log.d(TAG, "Login complete");
+                        setUserStatus();
+                        startAndClearAllActivity(MainActivity.class);
+                    } else {
+                        Log.e(TAG, "Login error : " + task.getException());
+                        binding.passwordInput.setError(getResources().getString(R.string.password_error));
+                        Toast.makeText(LoginActivity.this, "로그인 오류", Toast.LENGTH_SHORT).show();
+                    }
                 });
     }
 
-    private void loginAsTeacher() {
-        String email = "teacher1@gmail.com";
-        String password = "teacher1";
-        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-                .addOnSuccessListener(authResult -> {
-                    StudyWithMeInstance.getInstance().setCurrentUserStatus(Consts.Database.USER_STATUS_TEACHER);
-                    startAndClearAllActivity(MainActivity.class);
-                })
-                .addOnFailureListener(authResult -> {
-                    Log.e(TAG, "Login error : " + authResult.getMessage());
-                    Toast.makeText(LoginActivity.this, "로그인 오류",
-                            Toast.LENGTH_SHORT).show();
-                });
+    private void setUserStatus() {
+        String email = Objects.requireNonNull(firebaseAuth.getCurrentUser()).getEmail();
+        assert email != null;
+        if (email.startsWith(Consts.Database.USER_STATUS_TEACHER)) {
+            StudyWithMeInstance.getInstance()
+                    .setCurrentUserStatus(Consts.Database.USER_STATUS_TEACHER);
+        } else {
+            StudyWithMeInstance.getInstance()
+                    .setCurrentUserStatus(Consts.Database.USER_STATUS_STUDNET);
+        }
     }
 }

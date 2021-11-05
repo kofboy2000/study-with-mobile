@@ -70,4 +70,13 @@
     <string name="wash_your_hand">Wash your\n hand</string>
     <string name="keep_your_mask_on">Keep your\n mask on</string>
     <string name="notion_corona_info">https://fossil-feeling-b2c.notion.site/StudyWithMobile-d6b9f052e49748198053db62cb0f4fc5</string>
+    <string name="user_profile">User information</string>
+    <string name="email_id">Email ID</string>
+    <string name="email_id_hint">Please enter in email format</string>
+    <string name="password">Password</string>
+    <string name="password_hint">Enter password here</string>
+    <string name="user_name">User Name</string>
+    <string name="user_type">Select user type</string>
+    <string name="done">DONE</string>
+    <string name="password_error">Wrong Password</string>
 </resources>
